@@ -1,0 +1,185 @@
+---
+title: "Statisik - Cheat Sheet"
+author: "Afdeling 11"
+date: "10/12/2019"
+updated: "10/12/2019"
+output: 
+  html_document:
+    theme: united
+    highlight: zenburn
+    toc: true
+    toc_float: true
+    toc_depth: 1
+    code_folding: show
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# R Kommandoer {.tabset .tabset-fade}
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;border-color:#ccc;color:#333;background-color:#fff;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;border-color:#ccc;color:#333;background-color:#f0f0f0;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-btxf{background-color:#f9f9f9;border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <td class="tg-0pky">Females(x)</td>
+    <td class="tg-btxf">2474</td>
+    <td class="tg-0pky">2547</td>
+    <td class="tg-btxf">2830</td>
+    <td class="tg-0pky">3219</td>
+    <td class="tg-btxf">3429</td>
+    <td class="tg-0pky">3448</td>
+    <td class="tg-btxf">3677<br></td>
+    <td class="tg-0pky">3872</td>
+    <td class="tg-btxf">4001</td>
+    <td class="tg-0pky">4116</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Males(y)</td>
+    <td class="tg-btxf">2844</td>
+    <td class="tg-0pky">2863</td>
+    <td class="tg-btxf">2963</td>
+    <td class="tg-0pky">3239</td>
+    <td class="tg-btxf">3379</td>
+    <td class="tg-0pky">3449</td>
+    <td class="tg-btxf">3582</td>
+    <td class="tg-0pky">3926</td>
+    <td class="tg-btxf">4151</td>
+    <td class="tg-0pky">4356</td>
+  </tr>
+</table>
+```{r}
+x <- c(2474, 2547, 2830, 3219, 3429, 3448, 3677, 3872, 4001, 4116)
+y <- c(2844, 2863, 2963, 3239, 3379, 3449, 3582, 3926, 4151, 4356)
+```
+## Symboler
+
+## Sample Mean
+mean()
+```{r}
+mean(x)
+mean(y)
+```
+## Variance
+var()
+```{r}
+var(x)
+var(y)
+```
+## Standard Deviation
+sd()
+```{r}
+sd(x)
+sd(y)
+```
+## Quartiles / Quantile
+quantile()
+```{r}
+quantile(x)
+quantile(y)
+```
+## Boxplot
+boxplot()<br/>
+single
+```{r}
+boxplot(x, col = 2)
+```
+
+multiple
+```{r}
+boxplot(list(x,y), col = 2:3)
+```
+
+## Coefficient of variations
+sd() / mean()<br/>
+Kan skrives sådan for at få direkte i procent:<br/>
+(sd() / mean())*100
+```{r}
+(sd(x)/mean(x))*100
+sd(y)/mean(y)
+```
+
+## Median
+median()
+```{r}
+median(x)
+median(y)
+```
+
+##  Sample Coveriance
+cov()
+```{r}
+cov(x, y)
+```
+
+## Sample Correlation
+cor()
+```{r}
+cor(x, y)
+```
+
+## Binomial Distribution{.tabset .tabset-fade}
+### dbinom
+```{r}
+dbinom(4, size = 10, prob = 0.6)*100
+```
+I dette sammenhæng, er det chancen for succes, når man skal have præcis 4 succeser ud af 10 forsøg med en succes chance på 60%
+
+### pbinom
+```{r}
+## P(X <= 5) 5 eller under successer
+pbinom(5, size = 10, prob = 0.6)*100
+
+## P(X < 5) under 5 successer
+pbinom(4, size = 10, prob = 0.6)*100
+
+## P(X > 4) over 4 successer
+(1 - pbinom(4, size = 10, prob = 0.6))*100
+
+## P(X = 5) præcis 5 successer
+(pbinom(5, size = 10, prob = 0.6) - pbinom(4, size = 10, prob = 0.6))*100
+```
+
+## Poisson Distribution {.tabset .tabset-fade}
+### dpois
+```{r}
+dpois(4, lambda  = 3)
+```
+I dette sammenhæng, er det chancen for at få 4 events per interval, når gennemsnittet(mean) per interval er 3 events
+
+### ppois
+```{r}
+## P(X <= 5)
+ppois(5, lambda  = 3)
+
+## P(X < 5)
+ppois(4, lambda  = 3)
+
+## P(X > 4)
+1 - ppois(4, lambda  = 3)
+
+## P(X = 5)
+ppois(5, lambda  = 3) - ppois(4, lambda  = 3)
+```
+
+## Hypergeometric Distribution
+```{r}
+
+```
+
+
+
+
+
+
+
+
+
+
+

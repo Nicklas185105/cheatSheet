@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Afdeling 11" />
+
+<meta name="date" content="2019-10-12" />
+
+<title>Statisik - Cheat Sheet</title>
+
+<script src="test_files/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="test_files/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<script src="test_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="test_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="test_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="test_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="test_files/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="test_files/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="test_files/navigation-1.1/tabsets.js"></script>
+<script src="test_files/navigation-1.1/codefolding.js"></script>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  { color: #cccccc; background-color: #303030; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ffcfaf; } /* Alert */
+code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #dca3a3; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #f0dfaf; } /* ControlFlow */
+code span.ch { color: #dca3a3; } /* Char */
+code span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
+code span.co { color: #7f9f7f; } /* Comment */
+code span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
+code span.do { color: #7f9f7f; } /* Documentation */
+code span.dt { color: #dfdfbf; } /* DataType */
+code span.dv { color: #dcdccc; } /* DecVal */
+code span.er { color: #c3bf9f; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #c0bed1; } /* Float */
+code span.fu { color: #efef8f; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #7f9f7f; font-weight: bold; } /* Information */
+code span.kw { color: #f0dfaf; } /* Keyword */
+code span.op { color: #f0efd0; } /* Operator */
+code span.ot { color: #efef8f; } /* Other */
+code span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
+code span.sc { color: #dca3a3; } /* SpecialChar */
+code span.ss { color: #cc9393; } /* SpecialString */
+code span.st { color: #cc9393; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #cc9393; } /* VerbatimString */
+code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Statisik - Cheat Sheet</h1>
+<h4 class="author">Afdeling 11</h4>
+<h4 class="date">10/12/2019</h4>
+
+</div>
+
+
+<div id="r-kommandoer" class="section level1 tabset tabset-fade">
+<h1>R Kommandoer</h1>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;border-color:#ccc;color:#333;background-color:#fff;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;border-color:#ccc;color:#333;background-color:#f0f0f0;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-btxf{background-color:#f9f9f9;border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<tr>
+<td class="tg-0pky">
+Females(x)
+</td>
+<td class="tg-btxf">
+2474
+</td>
+<td class="tg-0pky">
+2547
+</td>
+<td class="tg-btxf">
+2830
+</td>
+<td class="tg-0pky">
+3219
+</td>
+<td class="tg-btxf">
+3429
+</td>
+<td class="tg-0pky">
+3448
+</td>
+<td class="tg-btxf">
+3677<br>
+</td>
+<td class="tg-0pky">
+3872
+</td>
+<td class="tg-btxf">
+4001
+</td>
+<td class="tg-0pky">
+4116
+</td>
+</tr>
+<tr>
+<td class="tg-0pky">
+Males(y)
+</td>
+<td class="tg-btxf">
+2844
+</td>
+<td class="tg-0pky">
+2863
+</td>
+<td class="tg-btxf">
+2963
+</td>
+<td class="tg-0pky">
+3239
+</td>
+<td class="tg-btxf">
+3379
+</td>
+<td class="tg-0pky">
+3449
+</td>
+<td class="tg-btxf">
+3582
+</td>
+<td class="tg-0pky">
+3926
+</td>
+<td class="tg-btxf">
+4151
+</td>
+<td class="tg-0pky">
+4356
+</td>
+</tr>
+</table>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2474</span>, <span class="dv">2547</span>, <span class="dv">2830</span>, <span class="dv">3219</span>, <span class="dv">3429</span>, <span class="dv">3448</span>, <span class="dv">3677</span>, <span class="dv">3872</span>, <span class="dv">4001</span>, <span class="dv">4116</span>)</a>
+<a class="sourceLine" id="cb1-2" title="2">y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">2844</span>, <span class="dv">2863</span>, <span class="dv">2963</span>, <span class="dv">3239</span>, <span class="dv">3379</span>, <span class="dv">3449</span>, <span class="dv">3582</span>, <span class="dv">3926</span>, <span class="dv">4151</span>, <span class="dv">4356</span>)</a></code></pre></div>
+<div id="symboler" class="section level2">
+<h2>Symboler</h2>
+</div>
+<div id="sample-mean" class="section level2">
+<h2>Sample Mean</h2>
+<p>mean()</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">mean</span>(x)</a></code></pre></div>
+<pre><code>## [1] 3361.3</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">mean</span>(y)</a></code></pre></div>
+<pre><code>## [1] 3475.2</code></pre>
+</div>
+<div id="variance" class="section level2">
+<h2>Variance</h2>
+<p>var()</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">var</span>(x)</a></code></pre></div>
+<pre><code>## [1] 344920.5</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">var</span>(y)</a></code></pre></div>
+<pre><code>## [1] 283158.2</code></pre>
+</div>
+<div id="standard-deviation" class="section level2">
+<h2>Standard Deviation</h2>
+<p>sd()</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">sd</span>(x)</a></code></pre></div>
+<pre><code>## [1] 587.2993</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">sd</span>(y)</a></code></pre></div>
+<pre><code>## [1] 532.1261</code></pre>
+</div>
+<div id="quartiles-quantile" class="section level2">
+<h2>Quartiles / Quantile</h2>
+<p>quantile()</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">quantile</span>(x)</a></code></pre></div>
+<pre><code>##      0%     25%     50%     75%    100% 
+## 2474.00 2927.25 3438.50 3823.25 4116.00</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">quantile</span>(y)</a></code></pre></div>
+<pre><code>##   0%  25%  50%  75% 100% 
+## 2844 3032 3414 3840 4356</code></pre>
+</div>
+<div id="boxplot" class="section level2">
+<h2>Boxplot</h2>
+<p>boxplot()<br/> single</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">boxplot</span>(x, <span class="dt">col =</span> <span class="dv">2</span>)</a></code></pre></div>
+<p><img src="test_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>multiple</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">boxplot</span>(<span class="kw">list</span>(x,y), <span class="dt">col =</span> <span class="dv">2</span><span class="op">:</span><span class="dv">3</span>)</a></code></pre></div>
+<p><img src="test_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="coefficient-of-variations" class="section level2">
+<h2>Coefficient of variations</h2>
+<p>sd() / mean()<br/> Kan skrives sådan for at få direkte i procent:<br/> (sd() / mean())*100</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">(<span class="kw">sd</span>(x)<span class="op">/</span><span class="kw">mean</span>(x))<span class="op">*</span><span class="dv">100</span></a></code></pre></div>
+<pre><code>## [1] 17.47239</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">sd</span>(y)<span class="op">/</span><span class="kw">mean</span>(y)</a></code></pre></div>
+<pre><code>## [1] 0.153121</code></pre>
+</div>
+<div id="median" class="section level2">
+<h2>Median</h2>
+<p>median()</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1"><span class="kw">median</span>(x)</a></code></pre></div>
+<pre><code>## [1] 3438.5</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">median</span>(y)</a></code></pre></div>
+<pre><code>## [1] 3414</code></pre>
+</div>
+<div id="sample-coveriance" class="section level2">
+<h2>Sample Coveriance</h2>
+<p>cov()</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">cov</span>(x, y)</a></code></pre></div>
+<pre><code>## [1] 301836.3</code></pre>
+</div>
+<div id="sample-correlation" class="section level2">
+<h2>Sample Correlation</h2>
+<p>cor()</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">cor</span>(x, y)</a></code></pre></div>
+<pre><code>## [1] 0.9658227</code></pre>
+</div>
+<div id="binomial-distribution" class="section level2 tabset tabset-fade">
+<h2>Binomial Distribution</h2>
+<div id="dbinom" class="section level3">
+<h3>dbinom</h3>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">dbinom</span>(<span class="dv">4</span>, <span class="dt">size =</span> <span class="dv">10</span>, <span class="dt">prob =</span> <span class="fl">0.6</span>)<span class="op">*</span><span class="dv">100</span></a></code></pre></div>
+<pre><code>## [1] 11.14767</code></pre>
+<p>I dette sammenhæng, er det chancen for succes, når man skal have præcis 4 succeser ud af 10 forsøg med en succes chance på 60%</p>
+</div>
+<div id="pbinom" class="section level3">
+<h3>pbinom</h3>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="co">## P(X &lt;= 5) 5 eller under successer</span></a>
+<a class="sourceLine" id="cb34-2" title="2"><span class="kw">pbinom</span>(<span class="dv">5</span>, <span class="dt">size =</span> <span class="dv">10</span>, <span class="dt">prob =</span> <span class="fl">0.6</span>)<span class="op">*</span><span class="dv">100</span></a></code></pre></div>
+<pre><code>## [1] 36.68967</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1"><span class="co">## P(X &lt; 5) under 5 successer</span></a>
+<a class="sourceLine" id="cb36-2" title="2"><span class="kw">pbinom</span>(<span class="dv">4</span>, <span class="dt">size =</span> <span class="dv">10</span>, <span class="dt">prob =</span> <span class="fl">0.6</span>)<span class="op">*</span><span class="dv">100</span></a></code></pre></div>
+<pre><code>## [1] 16.62386</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1"><span class="co">## P(X &gt; 4) over 4 successer</span></a>
+<a class="sourceLine" id="cb38-2" title="2">(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pbinom</span>(<span class="dv">4</span>, <span class="dt">size =</span> <span class="dv">10</span>, <span class="dt">prob =</span> <span class="fl">0.6</span>))<span class="op">*</span><span class="dv">100</span></a></code></pre></div>
+<pre><code>## [1] 83.37614</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1"><span class="co">## P(X = 5) præcis 5 successer</span></a>
+<a class="sourceLine" id="cb40-2" title="2">(<span class="kw">pbinom</span>(<span class="dv">5</span>, <span class="dt">size =</span> <span class="dv">10</span>, <span class="dt">prob =</span> <span class="fl">0.6</span>) <span class="op">-</span><span class="st"> </span><span class="kw">pbinom</span>(<span class="dv">4</span>, <span class="dt">size =</span> <span class="dv">10</span>, <span class="dt">prob =</span> <span class="fl">0.6</span>))<span class="op">*</span><span class="dv">100</span></a></code></pre></div>
+<pre><code>## [1] 20.06581</code></pre>
+</div>
+</div>
+<div id="poisson-distribution" class="section level2 tabset tabset-fade">
+<h2>Poisson Distribution</h2>
+<div id="dpois" class="section level3">
+<h3>dpois</h3>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1"><span class="kw">dpois</span>(<span class="dv">4</span>, <span class="dt">lambda  =</span> <span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## [1] 0.1680314</code></pre>
+<p>I dette sammenhæng, er det chancen for at få 4 events per interval, når gennemsnittet(mean) per interval er 3 events</p>
+</div>
+<div id="ppois" class="section level3">
+<h3>ppois</h3>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1"><span class="co">## P(X &lt;= 5)</span></a>
+<a class="sourceLine" id="cb44-2" title="2"><span class="kw">ppois</span>(<span class="dv">5</span>, <span class="dt">lambda  =</span> <span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## [1] 0.9160821</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1"><span class="co">## P(X &lt; 5)</span></a>
+<a class="sourceLine" id="cb46-2" title="2"><span class="kw">ppois</span>(<span class="dv">4</span>, <span class="dt">lambda  =</span> <span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## [1] 0.8152632</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1"><span class="co">## P(X &gt; 4)</span></a>
+<a class="sourceLine" id="cb48-2" title="2"><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">ppois</span>(<span class="dv">4</span>, <span class="dt">lambda  =</span> <span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## [1] 0.1847368</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1"><span class="co">## P(X = 5)</span></a>
+<a class="sourceLine" id="cb50-2" title="2"><span class="kw">ppois</span>(<span class="dv">5</span>, <span class="dt">lambda  =</span> <span class="dv">3</span>) <span class="op">-</span><span class="st"> </span><span class="kw">ppois</span>(<span class="dv">4</span>, <span class="dt">lambda  =</span> <span class="dv">3</span>)</a></code></pre></div>
+<pre><code>## [1] 0.1008188</code></pre>
+</div>
+</div>
+<div id="hypergeometric-distribution" class="section level2">
+<h2>Hypergeometric Distribution</h2>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
