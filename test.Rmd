@@ -178,9 +178,78 @@ ppois(5, lambda  = 3) - ppois(4, lambda  = 3)
 
 # Opgaver {.tabset .tabset-fade}
 
-## Opgave 1
+## Afhængige variabel og forklarende variabel i model
+
+<p>For at undersøge downloadhastigheden ved en arbejdsstation har man målt downloadtiderne (i sekunder) for 53 filer af forskellige størrelser ( m˚alt i MB). Downloadtiderne er gemt i vektorentime i R, mens de tilsvarende filstørrelser er gemt i vektoren size. Desuden er følgende kodeblevet kørt i R:</p>
+
+<pre>
+  <code>
+    logtime <- log(time)
+    model1<- lm(logtime ~ size)
+    summary(model1)
+    
+    ##
+    ## Call:
+    ## lm(formula = logtime ~ s ize )
+    ##
+    ## Residuals:
+    ## Min 1Q Median 3Q Max
+    ## -2.571 -0.673 0.132 0.745 2. 1 90
+    ##
+    ## Coefficients:
+    ## Estimate Std. Error t value P r( > |t |)
+    ## (Intercept) -0.109 0.482 -0.23 0.82
+    ## size 0.127 0.023 5.50 1.2e-06 ***
+    ## ---
+    ## Signif. codes: 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ##
+    ## Residual standard error: 0.979 on 51 degrees of freedom
+    ## Multiple R-squared: 0.372,Adjusted R-squared: 0.36
+    ## F-statistic: 30.2 on 1 a nd 51 DF, p-va l ue : 1.25e-06
+  </code>
+</pre>
+
+<p>
+  The statistical model given by model1 is a linear regression model of the form
+</p>
+
+<pre style="text-align:center;">Yi= β0+ β1xi+ εi,</pre>
+
+<p>
+  where εi, i = 1, . . . , 53, are assumed to be independent and identically N(0, σ2) distributed
+</p>
+
+<p>Identify the dependent variable and the explanatory variable in the model given by model1.</p>
 
 
+<ol>
+  <li>Download time is the dependent variable. File size is the explanatory variable</li>
+  <li>File size is the dependent varia b l e. The log arithm of download time is the explanatory variable</li>
+  <li>Download time is the explanatory variable. File size is the dependent variable.</li>
+  <li><b>File size is the explanatory variable. The logarithm of download time is the dependent variable.</b></li>
+  <li>As (the logarithm of) download time depends on file size, both file size and the logarithm of download size are dependent variables. There is no explanatory variable in the model.</li>
+</ol>
 
 
+<h3>FACIT</h3>
+<p>The variable to the left of the tilde (∼) in the R code corresponds to the dependent variable Yi, while the variable to the right of the tilde corresponds to the explanatory variable xi</p>
 
+## 90% interval prediction (kender mean og var)
+
+<p>The following code was also executed in R:</p>
+
+<pre>
+  <code>
+    mean(size)
+    
+    ## [1] 20.088
+    
+    (53-1)*var(size)
+    
+    ## [1] 1807.6
+  </code>
+</pre>
+
+<p>
+  
+</p>
