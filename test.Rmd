@@ -177,7 +177,9 @@ ppois(5, lambda  = 3) - ppois(4, lambda  = 3)
 
 
 
+# Opgaver {.tabset .tabset-fade}
 
+## Opgave 1
 
 
 
