@@ -173,8 +173,6 @@ ppois(5, lambda  = 3) - ppois(4, lambda  = 3)
 
 ```
 
-askjdkajsdjkasd
-
 
 
 
@@ -182,7 +180,7 @@ askjdkajsdjkasd
 
 ## Opgave 1
 
-sadj alksjd laskjd lasj
+
 
 
 
